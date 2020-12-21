@@ -1,9 +1,11 @@
 sudo: required
-services:
- - docker
+language: generic
 
- before_install:
+services:
+  - docker
+
+before_install:
   - docker build -t Xecius/udemy-docker-react -f Dockerfile.dev .
-  
- script:
+
+script:
   - docker run -e CI=true Xecius/udemy-docker-react npm run test
